@@ -1,0 +1,7 @@
+Jinja2==3.0.1
+mysql-connector-python==8.0.25
+Django==3.2.6
+mysqlclient==2.0.3
+sqlite3-to-mysql==1.4.1
+utm_tracker==1.2
+analytics-python==1.4.0
