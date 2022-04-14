@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-3m)r53^5z5rp5)vz=8nslxqi3_2s=n7!!d*0g!8&062f0v$=ek
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.1.11',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'utm_tracker',
+    'rest_framework',
 ]
 
 UTM_TRACKER_CUSTOM_TAGS = ["tag1", "tag2"]
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'utm_tracker.middleware.UtmSessionMiddleware',
     'utm_tracker.middleware.LeadSourceMiddleware',
+    'webanalytics.src.middlewre.cors_middleware.corsMiddleware',
 ]
 
 ROOT_URLCONF = 'webanalytics.urls'
@@ -156,3 +161,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True

@@ -5,3 +5,6 @@ mysqlclient==2.0.3
 sqlite3-to-mysql==1.4.1
 analytics-python==1.4.0
 django-utm-tracker==1.2
+
+requests~=2.27.1
+djangorestframework~=3.13.1
