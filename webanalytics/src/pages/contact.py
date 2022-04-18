@@ -1,5 +1,6 @@
 import requests
 
+
 class ContactPage:
     def __init__(self, analytics):
         self.analytic = analytics
