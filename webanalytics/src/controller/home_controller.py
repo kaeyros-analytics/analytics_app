@@ -21,6 +21,7 @@ def ip(request: HttpRequest):
 
 @api_view(['POST'])
 def save_link(req: HttpRequest):
+    """ cat: str, action: str, name: str, value: str"""
     links = req.data
     print(links)
     # TODO
