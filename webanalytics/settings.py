@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,7 +28,6 @@ SECRET_KEY = 'django-insecure-3m)r53^5z5rp5)vz=8nslxqi3_2s=n7!!d*0g!8&062f0v$=ek
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.1.11',
     '127.0.0.1'
 ]
 
@@ -41,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'utm_tracker',
-    'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
+    'rethinkdb',
+
 ]
 
 UTM_TRACKER_CUSTOM_TAGS = ["tag1", "tag2"]
@@ -83,16 +87,36 @@ WSGI_APPLICATION = 'webanalytics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
+#         'PORT': '',
+#     },
+#     'realtime': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'django_and_rethinkdb',
+#             'USER': 'django_and_rdb',
+#             'PASSWORD': 'django_and_rethinkdb',
+#             'HOST': 'localhost',
+#             'PORT': '3306'
+#         }
+# }
+# will be use cause of is realtime property
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
+ 'default': {
+     'ENGINE': 'django.db.backends.mysql',
+     'NAME': 'anaytic_data',
+     'USER': 'root',
+     'PASSWORD': 'MasterDjMix',
+     'HOST': 'localhost',
+     'PORT': '3306'
+ }
 }
+
 
 
 # Password validation
@@ -151,6 +175,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

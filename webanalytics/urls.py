@@ -18,12 +18,15 @@ from django.urls import path, include
 
 import logging
 import analytics
+
+from webanalytics import views
 from webanalytics.src.controller import home_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/ip', home_controller.ip),
     path('api/link-data', home_controller.save_link),
+    path('home', views.home)
 ]
 
 analytics.debug = True

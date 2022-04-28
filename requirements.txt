@@ -7,4 +7,3 @@ analytics-python==1.4.0
 django-utm-tracker==1.2
 
 requests~=2.27.1
-djangorestframework~=3.13.1
