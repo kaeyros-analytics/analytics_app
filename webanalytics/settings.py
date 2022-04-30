@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'utm_tracker',
     'rest_framework',
+    'webanalytics.src.models',
 ]
 
 UTM_TRACKER_CUSTOM_TAGS = ["tag1", "tag2"]
