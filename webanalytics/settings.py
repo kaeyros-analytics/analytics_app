@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-3m)r53^5z5rp5)vz=8nslxqi3_2s=n7!!d*0g!8&062f0v$=ek
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    '127.0.0.1',
+    'localhost'
 ]
 
 
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.sites',
     'rethinkdb',
+    'webanalytics.src.models',
+    'django.db',
 
 ]
 
@@ -107,16 +110,30 @@ WSGI_APPLICATION = 'webanalytics.wsgi.application'
 # }
 # will be use cause of is realtime property
 DATABASES = {
- 'default': {
-     'ENGINE': 'django.db.backends.mysql',
-     'NAME': 'anaytic_data',
-     'USER': 'root',
-     'PASSWORD': 'MasterDjMix',
-     'HOST': 'localhost',
-     'PORT': '3306'
- }
+  'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'anaytic_data',
+      'USER': 'root',
+      'PASSWORD': 'MasterDjMix',
+      'HOST': '127.0.0.1',
+      'PORT': '3306'
+  }
+ #    'default': {
+ #         'ENGINE': 'django.db.backends.sqlite3',
+ #         'NAME': BASE_DIR / 'db.sqlite3',
+ #         'USER': '',
+ #         'PASSWORD': '',
+ #         'HOST': '',
+ #         'PORT': '',
+ #     }
+
 }
 
+
+#
+# python manage.py makemigrations
+# python manage.py migrate
+# python manage.py runserver
 
 
 # Password validation
