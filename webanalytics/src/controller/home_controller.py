@@ -3,8 +3,8 @@ import json
 from django.http import HttpRequest, JsonResponse
 from rest_framework.decorators import api_view
 
-from webanalytics.src.models.pagecontent import pagecontent
-from webanalytics.src.models.webpage import webpage
+from webanalytics.src.dbmodels.models import pagecontent
+from webanalytics.src.dbmodels.models import webpage
 
 
 @api_view(['GET'])

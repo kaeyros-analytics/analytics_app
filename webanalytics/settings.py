@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.sites',
     'rethinkdb',
-    'webanalytics.src.models',
-    'django.db',
+    'analytics_app',
+   # 'webanalytics.src.dbmodels',
+   # 'django.db',
 
 ]
 
@@ -202,6 +203,6 @@ STATIC_URL = '/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.dbmodels.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
