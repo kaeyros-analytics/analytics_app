@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2 as ps
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,12 +87,15 @@ WSGI_APPLICATION = 'webanalytics.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'OPTIONS': {
+            'isolation_level': ps.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'scrapy',
+        'USER': 'postgres',
+        'PASSWORD': '1258012580',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
