@@ -16,6 +16,10 @@ def ip(request: HttpRequest):
         ip_add = request.META.get('REMOTE_ADDR')
 
     print(ip_add)
+
+    content = webpage(page_name="home", user_ip=ip_add)
+    content.save()
+
     return JsonResponse(data={'ip': ip_add})
 
 
