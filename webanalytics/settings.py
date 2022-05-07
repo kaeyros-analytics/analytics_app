@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'utm_tracker',
     'rest_framework',
-    'webanalytics.src.models',
+    'webanalytics',
 ]
 
 UTM_TRACKER_CUSTOM_TAGS = ["tag1", "tag2"]
@@ -91,7 +91,7 @@ DATABASES = {
             'isolation_level': ps.extensions.ISOLATION_LEVEL_SERIALIZABLE,
         },
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'scrapy',
+        'NAME': 'tracker',
         'USER': 'postgres',
         'PASSWORD': '1258012580',
         'HOST': 'localhost',

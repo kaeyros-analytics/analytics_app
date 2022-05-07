@@ -1,1 +1,1 @@
-default_app_config = 'webanalytics.apps.webAnalyticConfig'
+default_app_config = 'webanalytics.apps.WebAnalyticConfig'

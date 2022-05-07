@@ -5,8 +5,6 @@ import sys
 
 import analytics
 
-from webanalytics.src.pages.contact import ContactPage
-
 
 def main():
     """Run administrative tasks."""

@@ -1,8 +1,8 @@
 from django.apps import AppConfig
-import analytics
-from src.pages.contact import ContactPage
 
 
 class WebAnalyticConfig(AppConfig):
+    name = 'webanalytics'
+
     def ready(self):
-        analytics.write_key = 'YOUR_WRITE_KEY'
+        pass
