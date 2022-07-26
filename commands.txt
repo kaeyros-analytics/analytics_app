@@ -1,6 +1,0 @@
-
- py manage.py migrate // To apply the migration in database
-
- python manage.py makemigrations webanalytics // to generate migration version base of modification
-
- python manage.py sqlmigrate webanalytics num_version // to generate sql base of some version
