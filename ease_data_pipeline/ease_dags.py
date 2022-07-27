@@ -18,7 +18,8 @@ dag = DAG(dag_id="ease",
           default_args=default_args,
           #start_date=datetime(2022,7,26),
           #schedule_interval=timedelta(hours=24))
-          schedule_interval=timedelta(minutes=10))
+          schedule_interval=timedelta(minutes=10),
+          catchup=False)
 
 
 # Create a templated command to execute
