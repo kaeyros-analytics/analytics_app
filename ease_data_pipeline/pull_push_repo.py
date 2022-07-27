@@ -3,7 +3,7 @@ from datetime import date
 from datetime import datetime
 
 file_name = datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")
-PATH_OF_GIT_REPO = r'/c/Users/user/dags/analytics_app/.git'  # make sure .git folder is properly configured
+PATH_OF_GIT_REPO = '/c/Users/user/dags/analytics_app/.git'  # make sure .git folder is properly configured
 COMMIT_MESSAGE = 'push at' + file_name # Commit messge
 
 
