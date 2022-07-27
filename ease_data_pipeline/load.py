@@ -5,12 +5,13 @@ from datetime import date
 from datetime import datetime
 import transform
 
+from git import Repo
 # data in db store
 # the data name is here the current day's date.
 # the processed data are stored in a database
 
 # Define Path to new database
-drive_letter = "/c/Users/user/dags/ease_data_pipeline/" 
+drive_letter = "/c/Users/user/dags/analytics_app/ease_data_pipeline/" 
 file_name = datetime.now().strftime("%Y-%m-%d_%I-%M-%S_%p")
 file_exten = ".sqlite"
 dbPath = drive_letter + file_name + file_exten
@@ -33,7 +34,30 @@ mostpurchasse_offer= transform.tranform.mostpurchasse_offer
 mostpurchasse_offer.to_sql("mostpurchasse_offer", connection, if_exists = "replace", index=False)
 df_finance_volume = transform.tranform.df_finance_volume 
 df_finance_volume.to_sql("df_finance_volume", connection, if_exists = "replace", index=False)
-
 #df_new = pd.read_sql("select * from data_to_analyse", connection)
 connection.close()
-#End
+
+
+
+# Update Remote Repository
+PATH_OF_GIT_REPO = r'/c/Users/user/dags/analytics_app/.git'  # make sure .git folder is properly configured
+COMMIT_MESSAGE = 'push at' + file_name
+
+def git_push(path):
+    try:
+        repo = Repo(path)
+        my_branch = 'ease_pipeline'
+        repo.git.pull('origin', my_branch)
+        
+        
+        if repo.untracked_files:
+            repo.git.add(A=True)
+            repo.git.commit(m=COMMIT_MESSAGE)
+            repo.git.push('origin', my_branch)
+            print('git push')
+        else:
+            print('nothong to push')
+    except:
+        print('Some error occured while pushing the code')    
+
+git_push(PATH_OF_GIT_REPO)

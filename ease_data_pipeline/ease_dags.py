@@ -27,24 +27,32 @@ dag = DAG(dag_id="ease",
 templated_command = """
   python3 {{ params.filename }} 
 """
-
-task1 = BashOperator(task_id='extract',
+task1 = BashOperator(task_id='pull',
                     bash_command=templated_command,
-                    params={'filename': '/c/Users/user/dags/ease_data_pipeline/extract.py'},
+                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/pull_repo.py'},
+                    dag=dag)
+
+task2 = BashOperator(task_id='extract',
+                    bash_command=templated_command,
+                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/extract.py'},
                     dag=dag)
 
 
-task2 = BashOperator(task_id='transform',
+task3 = BashOperator(task_id='transform',
                     bash_command=templated_command,
-                    params={'filename': '/c/Users/user/dags/ease_data_pipeline/transform.py'},
+                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/transform.py'},
                     dag=dag)
 
-task3 = BashOperator(task_id='load',
+task4 = BashOperator(task_id='load',
                     bash_command=templated_command,
-                    params={'filename': '/c/Users/user/dags/ease_data_pipeline/load.py'},
+                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/load.py'},
+                    dag=dag)
+task5 = BashOperator(task_id='pull_push',
+                    bash_command=templated_command,
+                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/pull_push_repo.py'},
                     dag=dag)
 
-task1 >> task2 >> task3
+task1 >> task2 >> task3 >> task4 >> task5
 
 
 
