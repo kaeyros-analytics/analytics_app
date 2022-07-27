@@ -36,3 +36,4 @@ df_finance_volume.to_sql("df_finance_volume", connection, if_exists = "replace",
 
 #df_new = pd.read_sql("select * from data_to_analyse", connection)
 connection.close()
+#End
