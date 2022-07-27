@@ -12,7 +12,7 @@ repo = Repo(PATH_OF_GIT_REPO)
 my_branch = 'ease_pipeline' # my branch name, where I'm going to push file
 #repo.git.pull('origin', my_branch) # Trying to update local repository, if there are modification on remote Repo 
 def pull(branch_name):
-    repo.git.pull('origin', branch_name) # Trying to update local repository, if there are modification on remote Repo        
+    repo.git.fetch('origin', branch_name) # Trying to update local repository, if there are modification on remote Repo        
 pull(my_branch) 
 while pull(my_branch):
     time.sleep(0.9)    
