@@ -18,7 +18,7 @@ while pull(my_branch):
     time.sleep(0.9)    
 #if repo.untracked_files: # Here we firstly check if there are local modifications
 repo.git.add(A=True)
-def commit ():
+def commit():
     repo.git.commit(m=COMMIT_MESSAGE)
 
 commit()
