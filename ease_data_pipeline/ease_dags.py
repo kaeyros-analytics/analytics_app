@@ -47,12 +47,13 @@ task4 = BashOperator(task_id='load',
                     bash_command=templated_command,
                     params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/load.py'},
                     dag=dag)
-task5 = BashOperator(task_id='pull_push',
-                    bash_command=templated_command,
-                    params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/pull_push_repo.py'},
-                    dag=dag)
+#task5 = BashOperator(task_id='pull_push',
+                    #bash_command=templated_command,
+                    #params={'filename': '/c/Users/user/dags/analytics_app/ease_data_pipeline/pull_push_repo.py'},
+                    #dag=dag)
 
-task1 >> task2 >> task3 >> task4 >> task5
+task1 >> task2 >> task3 >> task4 
+#>> task5
 
 
 
