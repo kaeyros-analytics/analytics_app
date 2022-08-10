@@ -3,7 +3,7 @@ import pandas as pd
 
 from datetime import date
 from datetime import datetime
-import extract
+import get_data_from_mysqldb
 
 class tranform:   
     def newsfeatures(df):
@@ -18,8 +18,8 @@ class tranform:
         df['Min_diff'] = abs(df['Min_end'] - df['Min_start'])
         
         return(df)
-
-    df = newsfeatures(extract.extract.extraction())
+    db_name = "ease"
+    df = newsfeatures(get_data_from_mysqldb.get_data_class.get_data(db_name))
     IP_addresses_each_user = df.groupby('ip')['location_offer'].value_counts()
     most_visited_service = df.service_name.value_counts()
     most_traffic_time = df.hour.value_counts()
