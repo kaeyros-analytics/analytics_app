@@ -11,7 +11,10 @@ import transform
 # data in db store
 # the data name is here the current day's date.
 # the processed data are stored in a database
-
+host = "172.23.64.1"
+user = "cartelle"
+passw= "2021"
+#charset="utf8mb4"
 # Name of new database
 new_db_name = datetime.now().strftime("%Y_%m_%d_%I_%M_%S_%p")
 #new_db_name = "test2"
@@ -22,12 +25,14 @@ charSet  = "utf8mb4"     # Character set
 cusrorType = pymysql.cursors.DictCursor
 
 # Connection to server
-conn = pymysql.connect(host="192.168.224.1", user="cartelle", password="2021", charset=charSet, cursorclass=cusrorType)
+#conn = pymysql.connect(host="172.23.64.1", user="cartelle", password="2021", charset=charSet, cursorclass=cusrorType)
+conn = pymysql.connect(host=host, user=user, password=passw, charset=charSet, cursorclass=cusrorType)
 cursorInsatnce  = conn.cursor()
 cursorInsatnce.execute("CREATE DATABASE %s"%new_db_name)
 conn.close()
 # connection to database        
-sqlEngine   = create_engine('mysql+pymysql://cartelle:2021@192.168.224.1/%s'%new_db_name, pool_recycle=3600)
+#sqlEngine   = create_engine('mysql+pymysql://cartelle:2021@172.23.64.1/%s'%new_db_name, pool_recycle=3600)
+sqlEngine   = create_engine("mysql+pymysql://" + user + ":" + passw +"@" + host +"/" + new_db_name, pool_recycle=3600)
 dbConnection = sqlEngine.connect()
 try:
     # Get dataframe from transform class 
